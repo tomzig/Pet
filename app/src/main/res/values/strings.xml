@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">My Pet</string>
+    <string name="action_settings">Nastavitve</string>
+    <string name="B_myPets">Moji ljubljenčki</string>
+    <string name="B_Settings">Nastavitve</string>
+    <string name="B_About">O aplikaciji</string>
+    <string name="copyright">Vse pravice pridržane. T &amp; V 2014 - 2015</string>
+    <string name="title_activity_about">O aplikaciji</string>
+    <string name="About">Aplikacijo My Pet sva razvila Tomaž Gorenc in Vesna Horvat. Aplikacija je namenjena uporabnikom s hišnimi ljubljenčki za hranjenje osnovnih podatkov in opozoril.</string>
+    <string name="title_activity_all_pets">Moji ljubljenčki</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="title_activity_add_pet">Dodaj novega</string>
+    <string name="title_activity_view_pet">O ljubljenčku</string>
+    <string name="title_activity_add_reminder">Dodaj opomnik</string>
+    <string name="title_activity_my_pet" translatable="false">My Pet</string>
+
+</resources>

@@ -1,0 +1,180 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pet.emp.fri.mypet.addPet">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Ime: "
+        style="@style/TextStyleAdding"
+        android:id="@+id/tv1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Vrsta: "
+        style="@style/TextStyleAdding"
+        android:id="@+id/tv2"
+        android:layout_below="@+id/tv1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="34dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Rojstni dan: "
+        style="@style/TextStyleAdding"
+        android:id="@+id/tv3"
+        android:layout_below="@+id/tv2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="34dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Velikost: "
+        style="@style/TextStyleAdding"
+        android:id="@+id/tv4"
+        android:layout_below="@+id/tv3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="34dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Teža: "
+        style="@style/TextStyleAdding"
+        android:id="@+id/tv5"
+        android:layout_below="@+id/tv4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="34dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Številka čipa: "
+        style="@style/TextStyleAdding"
+        android:id="@+id/tv6"
+        android:layout_below="@+id/tv5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="34dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Št. veterinarja: "
+        style="@style/TextStyleAdding"
+        android:id="@+id/tv7"
+        android:layout_below="@+id/tv6"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="34dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Drugo: "
+        style="@style/TextStyleAdding"
+        android:id="@+id/tv8"
+        android:layout_below="@+id/tv7"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="34dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/ime"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv7"
+        android:layout_toRightOf="@+id/tv7" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vrsta"
+        android:layout_above="@+id/tv3"
+        android:layout_toRightOf="@+id/tv7"
+        android:layout_alignRight="@+id/ime"
+        android:layout_alignEnd="@+id/ime" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/rojDan"
+        android:layout_above="@+id/tv4"
+        android:layout_toEndOf="@+id/tv7"
+        android:layout_toRightOf="@+id/tv7"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/velikost"
+        android:layout_above="@+id/tv5"
+        android:layout_toEndOf="@+id/tv7"
+        android:layout_toRightOf="@+id/tv7"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/teza"
+        android:layout_above="@+id/tv6"
+        android:layout_toEndOf="@+id/tv7"
+        android:layout_toRightOf="@+id/tv7"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/cip"
+        android:layout_above="@+id/tv7"
+        android:layout_toEndOf="@+id/tv7"
+        android:layout_toRightOf="@+id/tv7"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/stevilka"
+        android:layout_above="@+id/tv8"
+        android:layout_toEndOf="@+id/tv7"
+        android:layout_toRightOf="@+id/tv7"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignBottom="@+id/tv8"
+        android:layout_toRightOf="@+id/tv7"
+        android:layout_alignRight="@+id/stevilka"
+        android:layout_alignEnd="@+id/stevilka" />
+
+</RelativeLayout>
