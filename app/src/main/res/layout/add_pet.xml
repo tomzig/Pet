@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=" Ime: "
-        style="@style/TextStyleAdding"
+        style="@style/TextStyleAddingFirst"
         android:id="@+id/tv1"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -105,9 +105,8 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/ime"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/tv7"
-        android:layout_toRightOf="@+id/tv7" />
+        android:layout_alignBottom="@+id/tv1"
+        android:layout_alignStart="@+id/rojDan" />
 
     <EditText
         android:layout_width="wrap_content"

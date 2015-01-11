@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=" Naslov: "
-        style="@style/TextStyleAdding"
+        style="@style/TextStyleAddingFirst"
         android:id="@+id/tv1"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -55,9 +55,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/naslov"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/tv2"
+        android:layout_alignStart="@+id/datum" />
 
     <EditText
         android:layout_width="wrap_content"
