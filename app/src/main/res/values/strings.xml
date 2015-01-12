@@ -15,5 +15,9 @@
     <string name="title_activity_view_pet">O ljubljenčku</string>
     <string name="title_activity_add_reminder">Dodaj opomnik</string>
     <string name="title_activity_my_pet" translatable="false">My Pet</string>
+    <string name="confirmTitle">Ste prepričani?</string>
+    <string name="confirmMessage">To bo dokončno zbrisalo ljubljenčka</string>
+    <string name="button_delete">Zbriši</string>
+    <string name="button_cancel">Prekliči</string>
 
 </resources>
