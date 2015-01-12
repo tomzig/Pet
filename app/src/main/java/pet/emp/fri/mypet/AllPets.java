@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.EditText;
+import android.view.View.OnClickListener;
 
 
 public class AllPets extends ListActivity {
@@ -30,6 +32,7 @@ public class AllPets extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.add_pet); //add
 
         contactListView = getListView();
         //Button delete = (Button) findViewById(R.id.AllpetsDeleteButton);
@@ -49,7 +52,58 @@ public class AllPets extends ListActivity {
         }
 
         setListAdapter(contactAdapter); // set contactView's adapter
+        //Button savePetButton = (Button) findViewById(R.id.savePetButton); //add
+        //savePetButton.setOnClickListener(savePetButtonClicked); //add
     }
+    /*
+    //add
+    OnClickListener savePetButtonClicked = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (ime.getText().length() != 0) {
+                AsyncTask<Object, Object, Object> saveContactTask = new AsyncTask<Object, Object, Object>() {
+                    @Override
+                    protected Object doInBackground(Object... params) {
+                        savePet(); // save pet to the database
+                        return null;
+                    } // end method doInBackground
+
+                    @Override
+                    protected void onPostExecute(Object result) {
+                        finish(); // return to the previous Activity
+                    } // end method onPostExecute
+                }; // end AsyncTask
+
+                // save the contact to the database using a separate thread
+                saveContactTask.execute((Object[]) null);
+            } // end if
+            else {
+                // create a new AlertDialog Builder
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddEditContact.this);
+
+                // set dialog title & message, and provide Button to dismiss
+                builder.setTitle(R.string.errorTitle);
+                builder.setMessage(R.string.errorMessage);
+                builder.setPositiveButton(R.string.errorButton, null);
+                builder.show(); // display the Dialog
+            } // end else
+        } // end method onClick
+    }; // end OnClickListener savePetButtonClicked
+
+    private void savePet() {
+        // get DatabaseConnector to interact with the SQLite database
+        DatabaseConnector databaseConnector = new DatabaseConnector(this);
+
+        if (getIntent().getExtras() == null) {
+            // insert the contact information into the database
+            databaseConnector.insertPets(petTV.getText().toString(), petVrsta
+                    .getText().toString(), petRojDan.getText().toString(), petVelikost
+                    .getText().toString(), petTeza.getText().toString(), petCip
+                    .getText().toString(), petStevilka.getText().toString(), petDrugo
+                    .getText().toString());
+        } // end if
+    } // end class saveContact
+    */
 
     AdapterView.OnItemClickListener deletePetListener = new AdapterView.OnItemClickListener() {
         @Override
