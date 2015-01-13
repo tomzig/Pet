@@ -4,7 +4,7 @@
     <string name="B_myPets">My Pets</string>
     <string name="B_Settings">Settings</string>
     <string name="B_About">About</string>
-    <string name="copyright">All rights reserved. T &amp; V 2014 - 2015</string>
+    <string name="copyright"><![CDATA[All rights reserved. T & V 2014 – 2015]]></string>
     <string name="About">Application My Pet was developed by Tomaž Gorenc and Vesna Horvat. The application is designed for users with pets for storing basic data and warnings.</string>
     <string name="title_activity_about">About</string>
     <string name="title_activity_add_pet">Add new</string>
@@ -12,4 +12,20 @@
     <string name="title_activity_all_pets">All pets</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_view_pet">View Pet</string>
+    <string name="Shrani">Save</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_delete">Delete</string>
+    <string name="cip">Chip: </string>
+    <string name="confirmTitle">Are you sure?</string>
+    <string name="confirmMessage">This will permanently delete your pet</string>
+    <string name="drugo">Others:</string>
+    <string name="name">Name:</string>
+    <string name="rojDan">Birthday: </string>
+    <string name="stevilka">Vet number: </string>
+    <string name="teza">Weight: </string>
+    <string name="velikost">Size: </string>
+    <string name="vrsta">Species:</string>
+    <string name="errorButton">OK</string>
+    <string name="errorMessage">Enter name</string>
+    <string name="errorTitle">Name is required</string>
 </resources>

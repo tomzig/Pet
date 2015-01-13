@@ -6,7 +6,7 @@
     <string name="B_myPets">Moji ljubljenčki</string>
     <string name="B_Settings">Nastavitve</string>
     <string name="B_About">O aplikaciji</string>
-    <string name="copyright">Vse pravice pridržane. T &amp; V 2014 - 2015</string>
+    <string name="copyright"><![CDATA[Vse pravice pridržane. T & V 2014 – 2015]]></string>
     <string name="title_activity_about">O aplikaciji</string>
     <string name="About">Aplikacijo My Pet sva razvila Tomaž Gorenc in Vesna Horvat. Aplikacija je namenjena uporabnikom s hišnimi ljubljenčki za hranjenje osnovnih podatkov in opozoril.</string>
     <string name="title_activity_all_pets">Moji ljubljenčki</string>
@@ -19,5 +19,17 @@
     <string name="confirmMessage">To bo dokončno zbrisalo ljubljenčka</string>
     <string name="button_delete">Zbriši</string>
     <string name="button_cancel">Prekliči</string>
+    <string name="Shrani">Shrani</string>
+    <string name="name">Ime:</string>
+    <string name="vrsta">Vrsta:</string>
+    <string name="rojDan">Rojstni dan:</string>
+    <string name="velikost">Velikost:</string>
+    <string name="teza">Teža:</string>
+    <string name="cip">Številka čipa:</string>
+    <string name="stevilka">Št. veterinarja:</string>
+    <string name="drugo">Drugo:</string>
+    <string name="errorTitle">Ime je obvezno</string>
+    <string name="errorMessage">Vnesite ime</string>
+    <string name="errorButton">V redu</string>
 
 </resources>
