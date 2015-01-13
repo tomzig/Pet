@@ -4,7 +4,36 @@
     android:layout_height="match_parent"
     tools:context="pet.emp.fri.mypet.ViewPet">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/reminderNaslov"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        style="@style/ViewPetNameStyle"/>
+    <TextView
+        android:id="@+id/reminderDatum"
+        android:layout_width="fill_parent"
+        android:layout_height="20sp"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:layout_below="@+id/reminderNaslov"
+        style="@style/ViewPetOtherStyle"/>
+    <TextView
+        android:id="@+id/reminderUra"
+        android:layout_width="fill_parent"
+        android:layout_height="20sp"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:layout_below="@+id/reminderDatum"
+        style="@style/ViewPetOtherStyle"/>
+    <TextView
+        android:id="@+id/reminderOpombe"
+        android:layout_width="fill_parent"
+        android:layout_height="20sp"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:layout_below="@+id/reminderUra"
+        style="@style/ViewPetOtherStyle"/>
 
 </RelativeLayout>

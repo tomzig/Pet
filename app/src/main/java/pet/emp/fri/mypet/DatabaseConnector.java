@@ -52,6 +52,18 @@ public class DatabaseConnector {
         close(); // close the database
     } // end method insertPets
 
+    public void insertReminders(String naslov, String datum, String ura, String opombe) {
+        ContentValues pets = new ContentValues();
+        pets.put("naslov", naslov);
+        pets.put("datum", datum);
+        pets.put("ura", ura);
+        pets.put("opombe", opombe);
+
+        open(); // open the database
+        database.insert("reminders", null, pets);
+        close(); // close the database
+    } // end method insertPets
+
     // inserts a new contact in the database
     public void updatePets(long id, String ime, String vrsta, String rojDan, String velikost, String teza, String cip, String stevilka, String drugo) {
         ContentValues pets = new ContentValues();
@@ -69,9 +81,26 @@ public class DatabaseConnector {
         close(); // close the database
     } // end method updatePets
 
+    public void updateReminders(long id, String naslov, String datum, String ura, String opombe) {
+        ContentValues pets = new ContentValues();
+        pets.put("naslov", naslov);
+        pets.put("datum", datum);
+        pets.put("ura", ura);
+        pets.put("opombe", opombe);
+
+        open(); // open the database
+        database.update("reminders", pets, "_id=" + id, null);
+        close(); // close the database
+    } // end method insertPets
+
     // return a Cursor with all contact information in the database
     public Cursor getAllPets() {
         return database.query("allpets", new String[]{"_id", "ime", "vrsta", "rojDan", "velikost", "teza", "cip", "stevilka", "drugo"}, null, null, null, null, "ime");
+    } // end method getAllPets
+
+    // return a Cursor with all contact information in the database
+    public Cursor getAllReminders() {
+        return database.query("reminders", new String[]{"_id", "naslov", "datum", "ura", "opombe"}, null, null, null, null, "naslov");
     } // end method getAllPets
 
     // get a Cursor containing all information about the contact specified
@@ -80,10 +109,18 @@ public class DatabaseConnector {
         return database.query("allpets", null, "_id=" + id, null, null, null, null);
     } // end method getOnePet
 
+    public Cursor getOneReminder(long id) {
+        return database.query("reminders", null, "_id=" + id, null, null, null, null);
+    }
     // delete the contact specified by the given String name
     public void deletePet(long id) {
         open(); // open the database
         database.delete("allpets", "_id=" + id, null);
+        close(); // close the database
+    } // end method deletePet
+    public void deleteReminder(long id) {
+        open(); // open the database
+        database.delete("reminders", "_id=" + id, null);
         close(); // close the database
     } // end method deletePet
 
@@ -97,14 +134,20 @@ public class DatabaseConnector {
         @Override
         public void onCreate(SQLiteDatabase db) {
             // query to create a new table named contacts
-            String createQuery = "CREATE TABLE allpets (_id integer primary key autoincrement, ime TEXT, vrsta TEXT, rojDan TEXT, velikost TEXT, teza TEXT, cip TEXT, stevilka TEXT, drugo TEXT);";
+            String createQuery1 = "CREATE TABLE allpets (_id integer primary key autoincrement, ime TEXT, vrsta TEXT, rojDan TEXT, velikost TEXT, teza TEXT, cip TEXT, stevilka TEXT, drugo TEXT);";
             // initializing the database
             String insertValues1 = "INSERT INTO allpets (_ID, ime, vrsta, rojDan, velikost, teza, cip, stevilka, drugo) values (NULL, 'Rita', 'Francoski buldog', '23.7.2014', '35 cm', '6kg', '6545455', '040-123-456', 'Ima gliste.');";
             String insertValues2 = "INSERT INTO allpets (_ID, ime, vrsta, rojDan, velikost, teza, cip, stevilka, drugo) values (NULL, 'Francek', 'Zelva', '23.7.2014', '35 cm', '6 kg', '6545455', '040-123-456', 'Ima gliste.');";
 
-            db.execSQL(createQuery); // execute the query
+            db.execSQL(createQuery1); // execute the query
             db.execSQL(insertValues1);
             db.execSQL(insertValues2);
+
+            String createQuery2 = "CREATE TABLE reminders (_id integer primary key autoincrement, naslov TEXT, datum TEXT, ura TEXT, opombe TEXT);";
+            String insertValues3 = "INSERT INTO reminders (_ID, naslov, datum, ura, opombe) values (NULL, 'Cepljenje', '20.12.2014', '10.00', 'Cena: 30€');";
+            db.execSQL(createQuery2); // execute the query
+            db.execSQL(insertValues3);
+
         } // end method onCreate
 
         @Override

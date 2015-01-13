@@ -3,38 +3,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
         android:id="@+id/petTV"
         android:layout_width="wrap_content"
         android:layout_height="30sp"
         android:gravity="center_vertical"
         android:minHeight="?android:attr/listPreferredItemHeight"
         style="@style/ViewPetNameStyle"/>
-    <ImageButton
-        android:id="@+id/AllpetsReminderButton"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:src="@drawable/reminder"
-        android:scaleType="fitXY"
-        android:layout_alignTop="@+id/AllpetsEditButton"
-        android:layout_toStartOf="@+id/AllpetsEditButton" />
-    <ImageButton
-        android:id="@+id/AllpetsEditButton"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:src="@drawable/edit"
-        android:scaleType="fitXY"
-        android:layout_alignTop="@+id/AllpetsDeleteButton"
-        android:layout_toStartOf="@+id/AllpetsDeleteButton" />
-    <ImageButton
-        android:id="@+id/AllpetsDeleteButton"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:src="@drawable/delete"
-        android:scaleType="fitXY"
-        android:layout_alignTop="@+id/petTV"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="10sp"/>
     <TextView
         android:id="@+id/petVrsta"
         android:layout_width="fill_parent"

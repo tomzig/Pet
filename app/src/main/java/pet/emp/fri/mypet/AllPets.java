@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CursorAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.EditText;
@@ -22,7 +23,7 @@ import android.view.View.OnClickListener;
 
 
 public class AllPets extends ListActivity {
-    public static long ROW_ID = -1; // Intent extra key
+    public static final String ROW_ID = "row_id"; // Intent extra key
     private ListView contactListView; // the ListActivity's ListView
     private CursorAdapter contactAdapter; // adapter for ListView
 
@@ -34,8 +35,9 @@ public class AllPets extends ListActivity {
         super.onCreate(savedInstanceState);
 
         contactListView = getListView();
-        //Button delete = (Button) findViewById(R.id.AllpetsDeleteButton);
-        //delete.setOnClickListener(deletePetListener);
+        contactListView.setOnItemClickListener(reminders);
+
+
 
         // map each contact's name to a TextView in the ListView layout
         String[] from = new String[]{"ime", "vrsta", "rojDan", "velikost", "teza", "cip", "stevilka", "drugo"};
@@ -53,15 +55,19 @@ public class AllPets extends ListActivity {
         setListAdapter(contactAdapter); // set contactView's adapter
 
     }
-    AdapterView.OnItemClickListener deletePetListener = new AdapterView.OnItemClickListener() {
+
+    AdapterView.OnItemClickListener reminders = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-            ROW_ID = arg3;
-            deletePet();
+            // create an Intent to launch the ViewContact Activity
+            Intent viewContact = new Intent(AllPets.this, ViewPet.class);
+
+            // pass the selected contact's row ID as an extra with the Intent
+            viewContact.putExtra(ROW_ID, arg3);
+            startActivity(viewContact); // start the ViewContact Activity
 
         }
     };
-
     @Override
     protected void onResume() {
         super.onResume(); // call super's onResume method
@@ -110,42 +116,4 @@ public class AllPets extends ListActivity {
         startActivity(addNewPet); // start the AddEditContact Activity
         return super.onOptionsItemSelected(item); // call super's method
     }
-    private void deletePet() {
-        // create a new AlertDialog Builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(AllPets.this);
-
-        builder.setTitle(R.string.confirmTitle); // title bar string
-        builder.setMessage(R.string.confirmMessage); // message to display
-
-        // provide an OK button that simply dismisses the dialog
-        builder.setPositiveButton(R.string.button_delete, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int button) {
-                final DatabaseConnector databaseConnector = new DatabaseConnector(AllPets.this);
-
-                // create an AsyncTask that deletes the contact in
-                // another
-                // thread, then calls finish after the deletion
-                AsyncTask<Long, Object, Object> deleteTask = new AsyncTask<Long, Object, Object>() {
-                    @Override
-                    protected Object doInBackground(Long... params) {
-                        databaseConnector.deletePet(params[0]);
-                        return null;
-                    } // end method doInBackground
-
-                    @Override
-                    protected void onPostExecute(Object result) {
-                        finish(); // return to the AddressBook Activity
-                    } // end method onPostExecute
-                }; // end new AsyncTask
-
-                // execute the AsyncTask to delete contact at rowID
-                deleteTask.execute(new Long[]{ROW_ID});
-            } // end method onClick
-        } // end anonymous inner class
-        ); // end call to method setPositiveButton
-
-        builder.setNegativeButton(R.string.button_cancel, null);
-        builder.show(); // display the Dialog
-    } // end method deleteContact
 }
