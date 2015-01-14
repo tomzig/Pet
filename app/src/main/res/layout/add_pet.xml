@@ -11,6 +11,9 @@
         android:text="@string/name"
         style="@style/TextStyleAddingFirst"
         android:id="@+id/tv1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -112,9 +115,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/vrsta"
-        android:layout_above="@+id/tv3"
-        android:layout_toRightOf="@+id/tv7"
-        android:layout_alignRight="@+id/ime"
+        android:layout_alignBottom="@+id/tv2"
+        android:layout_alignStart="@+id/ime"
         android:layout_alignEnd="@+id/ime" />
 
     <EditText
@@ -123,9 +125,8 @@
         android:inputType="date"
         android:ems="10"
         android:id="@+id/rojDan"
-        android:layout_above="@+id/tv4"
-        android:layout_toEndOf="@+id/tv7"
-        android:layout_toRightOf="@+id/tv7"/>
+        android:layout_alignBottom="@+id/tv3"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -133,9 +134,8 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/velikost"
-        android:layout_above="@+id/tv5"
-        android:layout_toEndOf="@+id/tv7"
-        android:layout_toRightOf="@+id/tv7"/>
+        android:layout_alignBottom="@+id/tv4"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -143,9 +143,8 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/teza"
-        android:layout_above="@+id/tv6"
-        android:layout_toEndOf="@+id/tv7"
-        android:layout_toRightOf="@+id/tv7"/>
+        android:layout_alignBottom="@+id/tv5"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -153,9 +152,8 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/cip"
-        android:layout_above="@+id/tv7"
-        android:layout_toEndOf="@+id/tv7"
-        android:layout_toRightOf="@+id/tv7"/>
+        android:layout_alignBottom="@+id/tv6"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -163,25 +161,25 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/stevilka"
-        android:layout_above="@+id/tv8"
-        android:layout_toEndOf="@+id/tv7"
-        android:layout_toRightOf="@+id/tv7"/>
+        android:layout_alignBottom="@+id/tv7"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/drugo"
         android:layout_alignBottom="@+id/tv8"
-        android:layout_toRightOf="@+id/tv7"
         android:layout_alignRight="@+id/stevilka"
-        android:layout_alignEnd="@+id/stevilka" />
+        android:layout_alignEnd="@+id/stevilka"
+        android:layout_toEndOf="@+id/tv7" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Shrani"
         android:id="@+id/AddPetSave"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/drugo"
+        android:layout_toEndOf="@+id/tv3" />
 
 </RelativeLayout>
