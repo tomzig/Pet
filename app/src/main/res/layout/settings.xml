@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_language"
+        style="@style/TextStyleSettings"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/language" />
+
+    <TextView
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_theme"
+        style="@style/TextStyleSettings"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/language"
+        android:id="@+id/theme" />
+
+    <TextView
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_sound"
+        style="@style/TextStyleSettings"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/theme"
+        android:id="@+id/sound" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="SLO/ENG"
+        android:textColor="#FF9000"
+        android:id="@+id/switchLanguage"
+        android:layout_marginTop="12dp"
+        android:layout_alignStart="@+id/switchSound"
+        android:layout_alignEnd="@+id/switchSound"
+        android:layout_alignTop="@+id/language" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Light/Dark"
+        android:textColor="#FF9000"
+        android:id="@+id/switchTheme"
+        android:layout_marginTop="12dp"
+        android:layout_alignStart="@+id/switchLanguage"
+        android:layout_below="@+id/language"
+        android:layout_alignTop="@+id/theme"
+        android:layout_alignEnd="@+id/switchLanguage" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="OFF/ON"
+        android:textColor="#FF9000"
+        android:id="@+id/switchSound"
+        android:layout_marginTop="12dp"
+        android:layout_alignTop="@+id/sound"
+        android:layout_toEndOf="@+id/theme"
+        android:layout_below="@+id/theme" />
+
+</RelativeLayout>

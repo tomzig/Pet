@@ -31,5 +31,8 @@
     <string name="errorTitle">Ime je obvezno</string>
     <string name="errorMessage">Vnesite ime</string>
     <string name="errorButton">V redu</string>
+    <string name="settings_language">Jezik</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_sound">Zvok</string>
 
 </resources>

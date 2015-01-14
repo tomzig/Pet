@@ -28,4 +28,6 @@
     <string name="errorButton">OK</string>
     <string name="errorMessage">Enter name</string>
     <string name="errorTitle">Name is required</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_sound">Sound</string>
 </resources>
