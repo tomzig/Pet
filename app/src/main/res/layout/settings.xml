@@ -40,7 +40,8 @@
         android:layout_marginTop="12dp"
         android:layout_alignStart="@+id/switchSound"
         android:layout_alignEnd="@+id/switchSound"
-        android:layout_alignTop="@+id/language" />
+        android:layout_alignTop="@+id/language"
+        android:onClick="changeLanguage"/>
 
     <Switch
         android:layout_width="wrap_content"
@@ -63,6 +64,7 @@
         android:layout_marginTop="12dp"
         android:layout_alignTop="@+id/sound"
         android:layout_toEndOf="@+id/theme"
-        android:layout_below="@+id/theme" />
+        android:layout_below="@+id/theme"
+        android:onClick="sound"/>
 
 </RelativeLayout>

@@ -47,6 +47,5 @@
     <string name="deleteMessage2">Selected pet will be deleted.</string>
     <string name="deleteReminder2">Delete pet</string>
     <string name="message2">Would you like to edit, delete or view reminders?</string>
-    <string name="sloeng"></string>
     <string name="tema">Light/Dark</string>
 </resources>
