@@ -137,11 +137,8 @@ public class DatabaseConnector {
             String createQuery1 = "CREATE TABLE allpets (_id integer primary key autoincrement, ime TEXT, vrsta TEXT, rojDan TEXT, velikost TEXT, teza TEXT, cip TEXT, stevilka TEXT, drugo TEXT);";
             // initializing the database
             String insertValues1 = "INSERT INTO allpets (_ID, ime, vrsta, rojDan, velikost, teza, cip, stevilka, drugo) values (NULL, 'Rita', 'Francoski buldog', '23.7.2014', '35 cm', '6kg', '6545455', '040-123-456', 'Ima gliste.');";
-            String insertValues2 = "INSERT INTO allpets (_ID, ime, vrsta, rojDan, velikost, teza, cip, stevilka, drugo) values (NULL, 'Francek', 'Zelva', '23.7.2014', '35 cm', '6 kg', '6545455', '040-123-456', 'Ima gliste.');";
-
             db.execSQL(createQuery1); // execute the query
             db.execSQL(insertValues1);
-            db.execSQL(insertValues2);
 
             String createQuery2 = "CREATE TABLE reminders (_id integer primary key autoincrement, naslov TEXT, datum TEXT, ura TEXT, opombe TEXT);";
             String insertValues3 = "INSERT INTO reminders (_ID, naslov, datum, ura, opombe) values (NULL, 'Cepljenje', '20.12.2014', '10.00', 'Cena: 30€');";

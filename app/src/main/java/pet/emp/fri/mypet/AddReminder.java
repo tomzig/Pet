@@ -41,6 +41,8 @@ public class AddReminder extends Activity {
             datum.setText(extras.getString("datum"));
             ura.setText(extras.getString("ura"));
             opombe.setText(extras.getString("opombe"));
+
+            new LoadContactTask().execute(rowID);
         } // end if
 
         // set event listener for the Save Contact Button
@@ -48,14 +50,7 @@ public class AddReminder extends Activity {
         saveContactButton.setOnClickListener(savePetButtonClicked);
     }
 
-    // called when the activity is first created
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-        // create new LoadContactTask and execute it
-        new LoadContactTask().execute(rowID);
-    } // end method onResume
     // performs database query outside GUI thread
     private class LoadContactTask extends AsyncTask<Long, Object, Cursor> {
         DatabaseConnector databaseConnector = new DatabaseConnector(AddReminder.this);

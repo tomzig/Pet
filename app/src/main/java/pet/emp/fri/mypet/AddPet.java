@@ -53,6 +53,8 @@ public class AddPet extends Activity {
             cip.setText(extras.getString("cip"));
             stevilka.setText(extras.getString("stevilka"));
             drugo.setText(extras.getString("drugo"));
+
+            new LoadContactTask().execute(rowID);
         } // end if
 
         // set event listener for the Save Contact Button
@@ -93,13 +95,6 @@ public class AddPet extends Activity {
         } // end method onClick
     }; // end OnClickListener savePetButtonClicked
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // create new LoadContactTask and execute it
-        new LoadContactTask().execute(rowID);
-    } // end method onResume
     // performs database query outside GUI thread
     private class LoadContactTask extends AsyncTask<Long, Object, Cursor> {
         DatabaseConnector databaseConnector = new DatabaseConnector(AddPet.this);
