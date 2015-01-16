@@ -35,7 +35,7 @@ public class AllPets extends ListActivity {
         super.onCreate(savedInstanceState);
 
         contactListView = getListView();
-        contactListView.setOnItemClickListener(reminders);
+        contactListView.setOnItemClickListener(addEditPet);
 
 
 
@@ -56,15 +56,96 @@ public class AllPets extends ListActivity {
 
     }
 
-    AdapterView.OnItemClickListener reminders = new AdapterView.OnItemClickListener() {
+    AdapterView.OnItemClickListener addEditPet = new AdapterView.OnItemClickListener() {
         @Override
-        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-            // create an Intent to launch the ViewContact Activity
-            Intent viewContact = new Intent(AllPets.this, ViewPet.class);
+        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, final long arg3) {
+//2nd Alert Dialog
+            AlertDialog.Builder alertDialogBuilderSuccess = new AlertDialog.Builder(AllPets.this);
+            alertDialogBuilderSuccess.setTitle(getString(R.string.deleteReminder2));
+            // set dialog message
+            alertDialogBuilderSuccess
+                    .setMessage(
+                            getString(R.string.deleteMessage2))
+                    .setPositiveButton(getString(R.string.potrdi),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    final DatabaseConnector databaseConnector = new DatabaseConnector(AllPets.this);
 
-            // pass the selected contact's row ID as an extra with the Intent
-            viewContact.putExtra(ROW_ID, arg3);
-            startActivity(viewContact); // start the ViewContact Activity
+                                    // create an AsyncTask that deletes the contact in
+                                    // another
+                                    // thread, then calls finish after the deletion
+                                    AsyncTask<Long, Object, Object> deleteTask = new AsyncTask<Long, Object, Object>() {
+                                        @Override
+                                        protected Object doInBackground(Long... params) {
+                                            databaseConnector.deletePet(params[0]);
+                                            return null;
+                                        } // end method doInBackground
+
+                                        @Override
+                                        protected void onPostExecute(Object result) {
+                                            finish(); // return to the AddressBook Activity
+                                        } // end method onPostExecute
+                                    }; // end new AsyncTask
+
+                                    // execute the AsyncTask to delete contact at rowID
+                                    deleteTask.execute(new Long[]{arg3});
+                                } // end method onClick
+                            })
+                    .setNegativeButton(R.string.preklici,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(
+                                        DialogInterface dialog, int id) {
+
+                                    dialog.cancel();
+                                }
+                            });
+
+            // create alert dialog
+            final AlertDialog alertDialogSuccess = alertDialogBuilderSuccess.create();
+            //////////////////////////////////
+            //1st Alert
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(AllPets.this);
+            alertDialogBuilder.setTitle(getString(R.string.viewPetTitle));
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage(getString(R.string.message2))
+                    .setPositiveButton(getString(R.string.zbrisi),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(
+                                        DialogInterface dialog, int id) {
+
+                                    //calling the second alert when it user press the confirm button
+                                    alertDialogSuccess.show();
+                                }
+                            })
+                    .setNegativeButton(getString(R.string.uredi),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(
+                                        DialogInterface dialog, int id) {
+                                    Intent addEditContact = new Intent(AllPets.this, AddPet.class);
+                                    addEditContact.putExtra("ID", arg3);
+
+                                    startActivity(addEditContact); // start the Activity
+                                }
+                            })
+
+                    .setNeutralButton(getString(R.string.opomniki),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(
+                                        DialogInterface dialog, int id) {
+
+                                    Intent addEditContact = new Intent(AllPets.this, ViewPet.class);
+                                    addEditContact.putExtra("ID", arg3);
+
+                                    startActivity(addEditContact); // start the Activity
+                                }
+                            });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
 
         }
     };

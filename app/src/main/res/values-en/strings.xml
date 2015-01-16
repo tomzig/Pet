@@ -30,4 +30,23 @@
     <string name="errorTitle">Name is required</string>
     <string name="settings_language">Language</string>
     <string name="settings_sound">Sound</string>
+    <string name="naslov">Name:</string>
+    <string name="opombe">Notes:</string>
+    <string name="datum">Date:</string>
+    <string name="settings_theme">Theme</string>
+    <string name="ura">Time:</string>
+    <string name="deleteMessage">Selected reminder will be deleted.</string>
+    <string name="deleteReminder">Delete reminder</string>
+    <string name="message1">Would you like to edit or delete?</string>
+    <string name="potrdi">Confirm</string>
+    <string name="preklici">Cancel</string>
+    <string name="uredi">Edit</string>
+    <string name="viewPetTitle">What would you like to do?</string>
+    <string name="zbrisi">Delete</string>
+    <string name="opomniki">Reminders</string>
+    <string name="deleteMessage2">Selected pet will be deleted.</string>
+    <string name="deleteReminder2">Delete pet</string>
+    <string name="message2">Would you like to edit, delete or view reminders?</string>
+    <string name="sloeng"></string>
+    <string name="tema">Light/Dark</string>
 </resources>

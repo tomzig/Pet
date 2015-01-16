@@ -26,7 +26,7 @@
     <string name="velikost">Velikost:</string>
     <string name="teza">Teža:</string>
     <string name="cip">Številka čipa:</string>
-    <string name="stevilka">Št. veterinarja:</string>
+    <string name="stevilka">Št. vet.:</string>
     <string name="drugo">Drugo:</string>
     <string name="errorTitle">Ime je obvezno</string>
     <string name="errorMessage">Vnesite ime</string>
@@ -34,5 +34,24 @@
     <string name="settings_language">Jezik</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_sound">Zvok</string>
+    <string name="naslov">Naslov:</string>
+    <string name="datum">Datum:</string>
+    <string name="ura">Ura:</string>
+    <string name="opombe">Opombe:</string>
+    <string name="viewPetTitle">Kaj želite storiti?</string>
+    <string name="message1">"Želite opomnik urediti ali zbrisati? "</string>
+    <string name="message2">"Želite ljubljenčka urediti, zbrisati ali pogledati opomnike? "</string>
+    <string name="zbrisi">Zbriši</string>
+    <string name="uredi">Uredi</string>
+    <string name="preklici">Prekliči</string>
+    <string name="potrdi">Potrdi</string>
+    <string name="deleteMessage">Izbran opomnik se bo zbrisal.</string>
+    <string name="deleteMessage2">Izbran ljubljenček se bo zbrisal.</string>
+    <string name="deleteReminder">Brisanje opomnika</string>
+    <string name="deleteReminder2">Brisanje ljubljenčka</string>
+    <string name="opomniki">Opomniki</string>
+    <string name="sloeng" translatable="false">SLO/ENG</string>
+    <string name="sound" translatable="false">OFF/ON</string>
+    <string name="tema">Svetla/Temna</string>
 
 </resources>

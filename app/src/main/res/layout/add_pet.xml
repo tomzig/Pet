@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/name"
-        style="@style/TextStyleAddingFirst"
+        style="@style/TextStyleAdding"
         android:id="@+id/tv1"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="16dp"
@@ -169,9 +169,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/drugo"
         android:layout_alignBottom="@+id/tv8"
-        android:layout_alignRight="@+id/stevilka"
         android:layout_alignEnd="@+id/stevilka"
-        android:layout_toEndOf="@+id/tv7" />
+        android:layout_toEndOf="@+id/tv7"
+        android:layout_alignStart="@+id/stevilka" />
 
     <Button
         android:layout_width="wrap_content"

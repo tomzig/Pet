@@ -2,6 +2,7 @@ package pet.emp.fri.mypet;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -43,7 +44,7 @@ public class AddPet extends Activity {
 
         // if there are extras, use them to populate the EditTexts
         if (extras != null) {
-            rowID = extras.getLong("row_id");
+            rowID = extras.getLong("ID");
             ime.setText(extras.getString("ime"));
             vrsta.setText(extras.getString("vrsta"));
             rojDan.setText(extras.getString("rojDan"));
@@ -91,6 +92,58 @@ public class AddPet extends Activity {
             } // end else
         } // end method onClick
     }; // end OnClickListener savePetButtonClicked
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // create new LoadContactTask and execute it
+        new LoadContactTask().execute(rowID);
+    } // end method onResume
+    // performs database query outside GUI thread
+    private class LoadContactTask extends AsyncTask<Long, Object, Cursor> {
+        DatabaseConnector databaseConnector = new DatabaseConnector(AddPet.this);
+
+        // perform the database access
+        @Override
+        protected Cursor doInBackground(Long... params) {
+            databaseConnector.open();
+
+            // get a cursor containing all data on given entry
+            return databaseConnector.getOnePet(params[0]);
+        } // end method doInBackground
+
+        // use the Cursor returned from the doInBackground method
+        @Override
+        protected void onPostExecute(Cursor result) {
+            super.onPostExecute(result);
+
+            result.moveToFirst(); // move to the first item
+
+            // get the column index for each data item
+            int imeIndex = result.getColumnIndex("ime");
+            int vrstaIndex = result.getColumnIndex("vrsta");
+            int rojDanIndex = result.getColumnIndex("rojDan");
+            int velikostIndex = result.getColumnIndex("velikost");
+            int tezaIndex = result.getColumnIndex("teza");
+            int cipIndex = result.getColumnIndex("cip");
+            int stevilkaIndex = result.getColumnIndex("stevilka");
+            int drugoIndex = result.getColumnIndex("drugo");
+
+            // fill TextViews with the retrieved data
+            ime.setText(result.getString(imeIndex));
+            vrsta.setText(result.getString(vrstaIndex));
+            rojDan.setText(result.getString(rojDanIndex));
+            velikost.setText(result.getString(velikostIndex));
+            teza.setText(result.getString(tezaIndex));
+            cip.setText(result.getString(cipIndex));
+            stevilka.setText(result.getString(stevilkaIndex));
+            drugo.setText(result.getString(drugoIndex));
+
+            result.close(); // close the result cursor
+            databaseConnector.close(); // close database connection
+        } // end method onPostExecute
+    } // end class LoadContactTask
 
     private void savePet() {
         // get DatabaseConnector to interact with the SQLite database

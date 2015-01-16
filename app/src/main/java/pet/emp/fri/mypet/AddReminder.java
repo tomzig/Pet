@@ -2,6 +2,7 @@ package pet.emp.fri.mypet;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,7 +36,7 @@ public class AddReminder extends Activity {
 
         // if there are extras, use them to populate the EditTexts
         if (extras != null) {
-            rowID = extras.getLong("row_id");
+            rowID = extras.getLong("ID");
             naslov.setText(extras.getString("naslov"));
             datum.setText(extras.getString("datum"));
             ura.setText(extras.getString("ura"));
@@ -46,6 +47,51 @@ public class AddReminder extends Activity {
         Button saveContactButton = (Button) findViewById(R.id.addReminderShrani);
         saveContactButton.setOnClickListener(savePetButtonClicked);
     }
+
+    // called when the activity is first created
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // create new LoadContactTask and execute it
+        new LoadContactTask().execute(rowID);
+    } // end method onResume
+    // performs database query outside GUI thread
+    private class LoadContactTask extends AsyncTask<Long, Object, Cursor> {
+        DatabaseConnector databaseConnector = new DatabaseConnector(AddReminder.this);
+
+        // perform the database access
+        @Override
+        protected Cursor doInBackground(Long... params) {
+            databaseConnector.open();
+
+            // get a cursor containing all data on given entry
+            return databaseConnector.getOneReminder(params[0]);
+        } // end method doInBackground
+
+        // use the Cursor returned from the doInBackground method
+        @Override
+        protected void onPostExecute(Cursor result) {
+            super.onPostExecute(result);
+
+            result.moveToFirst(); // move to the first item
+
+            // get the column index for each data item
+            int naslovIndex = result.getColumnIndex("naslov");
+            int uraIndex = result.getColumnIndex("ura");
+            int datumIndex = result.getColumnIndex("datum");
+            int opombeIndex = result.getColumnIndex("opombe");
+
+            // fill TextViews with the retrieved data
+            naslov.setText(result.getString(naslovIndex));
+            ura.setText(result.getString(uraIndex));
+            datum.setText(result.getString(datumIndex));
+            opombe.setText(result.getString(opombeIndex));
+
+            result.close(); // close the result cursor
+            databaseConnector.close(); // close database connection
+        } // end method onPostExecute
+    } // end class LoadContactTask
 
     View.OnClickListener savePetButtonClicked = new View.OnClickListener() {
         @Override
@@ -96,27 +142,4 @@ public class AddReminder extends Activity {
                     .getText().toString());
         } // end else
     } // end class saveContact
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_reminder, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
